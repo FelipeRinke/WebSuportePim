@@ -1,0 +1,63 @@
+﻿@model List<WebSuportePim.Models.Chamado>
+@{
+    ViewData["Title"] = "ChamadosAbertos";
+}
+
+@* @model List<SeuProjeto.Models.Chamado> *@
+
+<div class="calls-container">
+    <div class="header-bar">
+        <button class="back-button" onclick="history.back()">&#x2190;</button>
+        <h1 class="page-title">Todos os chamados</h1>
+    </div>
+
+    <table class="calls-table">
+        <thead>
+            <tr class="header-row">
+                <th class="header-col id-col">ID</th>
+                <th class="header-col title-col">Título</th>
+                <th class="header-col status-col">Status</th>
+                <th class="header-col date-col">Data de Abertura</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var chamado in Model)
+                {
+                    // Determina a classe CSS (seu código original)
+                    string statusClass = chamado.Status switch
+                    {
+                        "Aberto" => "status-aberto",
+                        "Atribuído" => "status-em-progresso", // Mudei para "Atribuído" (do seu DB)
+                        "Concluído" => "status-resolvido",   // Mudei para "Concluído" (do seu DB)
+                        _ => ""
+                    };
+                    <tr>
+                        <td data-label="ID">
+                            @chamado.Id_Chamado  @* <-- Use a propriedade do Model (Id_Chamado) *@
+                        </td>
+                        <td data-label="Título">
+                            @chamado.Titulo
+                        </td>
+                        <td data-label="Status">
+                            <span class="status-badge @statusClass">
+                                @chamado.Status
+                            </span>
+                        </td>
+                        <td data-label="Data de Abertura">
+                            @chamado.Data_Abertura.ToString("dd/MM/yy") @* <-- Use a propriedade (Data_Abertura) *@
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="no-data-message">Nenhum chamado encontrado.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div> 

@@ -1,0 +1,492 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
+body {
+    margin-bottom: 60px;
+    background-color: #f8f9fa; 
+    overflow:hidden;
+}
+
+
+
+.main-container {
+    display: flex; 
+    width: 100%;
+    height: calc(115vh - 180px); /* Ocupa a altura da tela, descontando navbar e footer */
+    margin-top: 20px;
+    background-color: #fff; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar {
+    background-color: #6200EE;
+    flex-basis: 35%;
+    flex-shrink: 0;
+}
+
+.content {
+    flex-grow: 1; /* O conteúdo central ocupa o espaço que sobrar */
+    padding: 40px;
+    /* Centraliza o texto e botão que estiverem aqui dentro */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+    /* =================================
+   ESTILOS DOS TEXTOS
+   ================================= */
+    .content h1 {
+        font-family: 'Playfair Display', serif; /* Use uma fonte serifada elegante */
+        font-size: 2.8rem;
+        color: #333;
+        font-weight: 700;
+    }
+
+    .content p {
+        font-family: 'Roboto', sans-serif; /* Fonte mais limpa para o parágrafo */
+        font-size: 1.1rem;
+        color: #555;
+        max-width: 450px;
+        line-height: 1.6;
+    }
+
+
+/* =================================
+   ESTILO DA NAVBAR E BOTÃO LOGIN
+   ================================= */
+.navbar {
+    border-bottom: none !important; /* Remove a borda padrão */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+a.btn-login-nav {
+    background-color: #6200EE;
+    color: #fff !important; /* !important força a cor sobre o estilo padrão do Bootstrap */
+    border-radius: 50px;
+    padding: 8px 25px !important;
+    margin-left: 15px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+    a.btn-login-nav:hover {
+        background-color: #5600e0;
+        color: #fff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+
+/* =================================
+   ESTILO DO RODAPÉ (FOOTER)
+   ================================= */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
+
+
+/*Página Login*/
+
+
+.login-page {
+    /* Cor de fundo cinza claro (do protótipo) */
+    background-color: #e9e9e9;
+    /* Centraliza o card na tela (Full Center) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Sugestão de fonte moderna */
+    overflow: hidden;
+}
+
+
+.login {
+    background-color: #6200EE; /* O roxo vibrante */
+    width: 350px;
+    padding: 60px 40px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.login-title {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+
+.form-login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-login {
+    width: 100%;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+/* 1. ESTILO PARA TODOS OS LABELS (Rótulos: Usuário, Senha) */
+.input-label { /* Usei .input-label como nome genérico para os labels */
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* 2. ESTILO PARA TODOS OS INPUTS (Caixas de Texto) */
+.login-field {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    background-color: #f0f0f0;
+    /* O EFEITO DE SOMBRA DUPLA (O principal do design) */
+    box-shadow: 10px 10px 0px 0px #333;
+    box-sizing: border-box;
+    transition: box-shadow 0.2s ease-out;
+}
+
+    /* 3. CORREÇÃO DO SELETOR DE FOCO */
+    .login-field:focus {
+        /* Diminui a sombra ao focar para dar um efeito de 'clique' */
+        box-shadow: 8px 8px 0px 0px #333;
+    }
+
+.btn-login {
+background-color: #9c27b0; /* Roxo/Magenta para destacar */
+color:#fff;
+border: none;
+padding: 12px 60px;
+border-radius: 50px;
+font-size: 1.2rem;
+font-weight: 700;
+cursor: pointer;
+margin-top: 30px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+transition: background-color 0.2s, transform 0.2s;
+}
+
+    .btn-login:hover {
+    background-color: #8e24aa;
+    transform: translateY(-2px);
+    }
+
+
+/*Tela abrir chamado*/
+.chamado {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 40px;
+    background-color: #f4f4f9;
+    overflow:auto;
+}
+
+.title-chamado {
+    color: #6a0dff;
+    margin-bottom: 20px;
+}
+
+.form-chamado {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.labelChamado {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.btn-enviar {
+    background-color: #6a0dff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    .btn-enviar:hover {
+        background-color: #4b08b6;
+    }
+
+.btn-voltar {
+    display:flex ;
+    margin-top: 20px;
+    padding: 10px 18px;
+    background-color: #6a0dff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+    .btn-voltar:hover {
+        background-color: #4b08b6;
+    }
+
+
+
+
+/* Paleta de Cores (Definida para facilitar a manutenção) */
+:root {
+    --primary-purple: #5c2d91; /* Roxo principal */
+    --light-purple: #8a4edb;
+    --status-aberto: #6aa84f; /* Verde para 'Aberto' */
+    --status-em-progresso: #f6b26b; /* Laranja para 'Em progresso' */
+    --status-resolvido: #e06666; /* Vermelho para 'Resolvido' */
+    --text-color: #333;
+    --line-color: #e0e0e0;
+    --background-light: #f5f5f5;
+    --header-gradient: linear-gradient(90deg, #6c3dae, #8a4edb, #5c2d91);
+}
+
+/* Estilo do Container Principal e Fundo Pontilhado (Opcional) */
+.calls-container {
+    max-width: 800px; /* Limite de largura para desktop */
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    /* O fundo pontilhado da imagem é mais complexo e não essencial, mas vou simular o básico do layout */
+}
+
+/* Cabeçalho da Página */
+.header-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    margin-right: 15px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.page-title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+/* Estilo da Tabela */
+.calls-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+    /* Estilo da Linha de Cabeçalho (Pílula Roxo) */
+    .calls-table thead {
+        background: var(--header-gradient);
+        color: white;
+        border-radius: 30px; /* Formato de pílula */
+        margin-bottom: 10px; /* Espaço entre o cabeçalho e a primeira linha de dados */
+        display: table-header-group; /* Garante que o thead ocupe a largura total */
+    }
+
+        .calls-table thead tr {
+            display: flex;
+            padding: 10px 20px;
+        }
+
+    .calls-table th {
+        font-weight: bold;
+        text-align: left;
+        padding: 10px 5px;
+        white-space: nowrap;
+        /* Para arredondar as bordas nas pontas */
+    }
+
+        .calls-table th.id-col {
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+            width: 10%;
+            text-align: center;
+        }
+
+        .calls-table th.title-col {
+            width: 45%;
+        }
+
+        .calls-table th.status-col {
+            width: 25%;
+            text-align: center;
+        }
+
+        .calls-table th.date-col {
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            width: 20%;
+            text-align: right;
+        }
+
+    /* Estilo das Linhas de Dados */
+    .calls-table tbody tr {
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid var(--line-color); /* Linha divisória */
+        padding: 15px 20px;
+    }
+        /* Remover a borda da última linha */
+        .calls-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+    .calls-table td {
+        padding: 0 5px;
+        color: var(--text-color);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+        .calls-table td:nth-child(1) { /* ID */
+            width: 10%;
+            text-align: center;
+        }
+
+        .calls-table td:nth-child(2) { /* Título */
+            width: 45%;
+        }
+
+        .calls-table td:nth-child(3) { /* Status */
+            width: 25%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .calls-table td:nth-child(4) { /* Data de Abertura */
+            width: 20%;
+            text-align: right;
+        }
+
+/* Estilo dos Badges de Status */
+.status-badge {
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: center;
+    min-width: 100px;
+    display: inline-block;
+}
+
+.status-aberto {
+    background-color: var(--status-aberto);
+}
+
+.status-em-progresso {
+    background-color: var(--status-em-progresso);
+}
+
+.status-resolvido {
+    background-color: var(--status-resolvido);
+}
+
+/* Media Query para Responsividade em telas pequenas (e.g., celulares) */
+@media screen and (max-width: 600px) {
+    .calls-container {
+        margin: 0;
+        padding: 10px;
+        border-radius: 0;
+    }
+
+    .calls-table thead {
+        display: none; /* Esconde o cabeçalho da tabela em mobile */
+    }
+
+    .calls-table tbody tr {
+        flex-direction: column; /* Coloca os dados em coluna */
+        align-items: flex-start;
+        padding: 15px;
+        margin-bottom: 10px;
+        border: 1px solid var(--line-color);
+        border-radius: 8px;
+    }
+
+    .calls-table td {
+        width: 100% !important; /* Cada célula ocupa a largura total */
+        text-align: left !important;
+        padding: 5px 0;
+        white-space: normal;
+    }
+
+        /* Adiciona o rótulo antes do dado (usando o atributo data-label) */
+        .calls-table td:before {
+            content: attr(data-label) ": ";
+            font-weight: bold;
+            color: var(--primary-purple);
+            display: inline-block;
+            min-width: 120px;
+        }
+
+        .calls-table td:nth-child(3) { /* Status no mobile */
+            justify-content: flex-start;
+        }
+
+    .status-badge {
+        margin-left: 5px; /* Ajuste para melhor alinhamento com o rótulo */
+    }
+}
+

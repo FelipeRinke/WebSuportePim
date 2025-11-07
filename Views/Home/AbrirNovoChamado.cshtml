@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "AbrirNovoChamado";
+}
+
+<body class="chamado">
+    <h1 class="title-chamado">Abrir Novo Chamado</h1>
+
+    <form method="post" action="/Chamados/Novo" class="form-chamado" enctype="multipart/form-data">
+        <label class="labelChamado" for="titulo">Título do chamado:</label>
+        <input type="text" id="titulo" name="titulo" placeholder="Digite o Titulo do seu problema" required />
+
+        <label class="labelChamado" for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" rows="5" required placeholder="Digite o que está acontencendo"></textarea>
+
+        <label class="labelChamado" for="arquivo">Anexar arquivo (opcional):</label>
+        <input type="file" id="arquivo" name="arquivo"/>
+
+        <button class="btn-enviar" type="submit">Enviar Chamado</button>
+    </form>
+
+    <a href="/Home/Dashboard" class="btn-voltar">⬅ Voltar para Tela Inicial</a>
+</body>
