@@ -3,85 +3,46 @@
 *@
 
 @{
-     ViewData["Title"] = "Dashboard" ;
-        var nome = Context.Session.GetString("UsuarioNome");
-        var dep = Context.Session.GetString("UsuarioDepartamento");
-    
+    ViewData["Title"] = "Dashboard";
+    var nome = Context.Session.GetString("UsuarioNome");
+    var dep = Context.Session.GetString("UsuarioDepartamento");
 }
 
+<div class="main-container dashboard">
+    <aside class="sidebar dashboard-sidebar">
+        <div class="user-box">
+            <div class="user-icon">👤</div>
+            <span>Olá, @nome!</span>
+            <span>Departamento: @dep</span>
+        </div>
 
-@* <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
+        <nav class="menu-dashboard">
+            <a asp-controller="Home" asp-action="Index" class="menu-item">
+                <i class="icon">🏠</i>
+                <span>Tela Inicial</span>
+            </a>
+            <a asp-controller="Home" asp-action="ChamadosAbertos" class="menu-item">
+                <i class="icon">📋</i>
+                <span>Todos os chamados</span>
+            </a>
+            <a asp-controller="Home" asp-action="AbrirNovoChamado" class="menu-item">
+                <i class="icon">➕</i>
+                <span>Abrir novo chamado</span>
+            </a>
+            <a asp-controller="Chat" asp-action="Index" class="menu-item">
+                <i class="icon">💬</i>
+                <span>ChatBot Ajuda</span>
+            </a>
+        </nav>
+    </aside>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            height: 100vh;
-        }
+    <section class="content dashboard-content">
+        <h1>Bem-vindo, @nome!</h1>
+        <div class="logout-icon">
+            <a asp-controller="Home" asp-action="Index">➡️</a>
+        </div>
+    </section>
+    
+</div>
 
-        /* Menu lateral */
-        .sidebar {
-            width: 240px;
-            background-color: #6a0dff;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 30px;
-        }
-
-        .sidebar h2 {
-            margin-bottom: 30px;
-        }
-
-        .sidebar a {
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px;
-            width: 100%;
-            text-align: left;
-            transition: background 0.3s;
-            display: block;
-        }
-
-        .sidebar a:hover {
-            background-color: #4b08b6;
-        }
-
-        /* Conteúdo principal */
-        .content {
-            flex: 1;
-            padding: 40px;
-            background-color: #f9f9f9;
-        }
-
-        .content h1 {
-            color: #333;
-        }
-    </style>
-</head>
- *@
-<body>
-
-    <h2>Bem-vindo, @nome!</h2>
-    <p>Departamento: @dep</p>
-    <div class="sidebar">
-        <h2>Menu</h2>
-        <a asp-controller="Home" asp-action="ChamadosAbertos">Todos os Chamados</a>
-        <a asp-controller="Home" asp-action="AbrirNovoChamado">Abrir Novo Chamado </a>
-        <a asp-controller="Chat" asp-action="Index">Chatbot de Ajuda</a>
-    </div>  
-
-    <div class="content">
-        <h1>Bem-vindo ao Sistema de Suporte de TI</h1>
-        <p>Escolha uma das opções no menu ao lado para começar.</p>
-    </div>
-</body>
-</html>
 
