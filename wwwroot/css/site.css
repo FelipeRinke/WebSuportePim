@@ -92,7 +92,7 @@ body {
 .navbar-nav {
     display: flex;
     gap: 30px;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 
@@ -240,7 +240,9 @@ a.btn-login-nav {
 .title-chamado {
     color: #6a0dff;
     margin-bottom: 20px;
-    text-align:center;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    f
 }
 
 .form-chamado {
@@ -302,6 +304,7 @@ input[type="file"] {
         background-color: #4b08b6;
         transform: translateY(-2px);
         box-shadow: 0 6px 10px rgba(94, 23, 235, 0.3);
+        color: white;
     }
 
 /* Paleta de Cores */
